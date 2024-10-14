@@ -1,0 +1,251 @@
+/* style file created by Yilian Zhang
+ ======================================
+ 00: css variable
+ 01: color
+ 02: Layout
+ 03: Typography
+ 04: Transitions, Animations, and Selector practices
+ 05: Funcy stuff --Please explore yourself.
+
+ ========================
+ */
+
+/* 00 css variable */
+:root {
+    --body-color: hsla(359, 39%, 35%, 0.8);
+    --page-color: hsla(30, 32%, 88%, 0.9);
+    --sidebar-color: rgb(191, 164, 99);
+    /** font color **/
+    --font-color: rgb(2, 17, 22);
+    /** layout variables **/
+    --page-top-position: 85%;
+    --page-width: 30%;
+    --bottom-bar-height: 15vh;
+    --bottom-bar-color: hsla(27, 43%, 55%, 1);
+}
+
+/* 01 Color */
+body {
+    background-color: var(--body-color);
+}
+
+#zen-intro {
+    background-color: var(--page-color);
+    color: var(--font-color);
+}
+
+#zen-supporting {
+    background-color: var(--page-color);
+}
+
+.sidebar {
+    background-color: var(--sidebar-color);
+}
+
+h1 {
+    /* finish it */
+}
+
+/*02 Layout */
+div.explanation,
+div.requirements,
+div.benefits,
+div.participation {
+    position: fixed;
+    width: var(--page-width);
+    top: var(--page-top-position);
+    background-image: url(../img/newspaper3.jpg);
+    transition: all 1s ease-in-out
+}
+
+
+div.explanation {
+    left: 1%;
+}
+
+/* finish it for requirments/benefits/participation */
+div.requirements {
+    left: 18vw;
+}
+
+div.benefits {
+    left: 36vw;
+}
+
+div.participation {
+    left: 54vw;
+}
+
+aside.sidebar {
+    position: absolute;
+    top: 20%;
+    right: 0;
+    /* bottom: 0; */
+    /*adjust width/height */
+    width: 20%;
+    height: 100%;
+}
+
+section.intro {
+    /* finish as much as can */
+    position: fixed;
+    bottom: 5%;
+    left: 30%;
+    width: 30%;
+    height: 80%;
+    background-image: url(../img/newspaper3.jpg);
+    padding: 2%;
+    border: 2px dashed rgb(39, 34, 34);
+    margin-left: 10px;
+    text-indent: 1px;
+    /* -9999px can remove the content away */
+    /*put the transform and translate here */
+    transform: rotate(-10deg) translate(-180px);
+}
+
+div.extra2 {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: var(--bottom-bar-height);
+    background-color: var(--bottom-bar-color);
+}
+
+div.extra1 {
+    position: fixed;
+    bottom: 5%;
+    left: 20%;
+    width: 30%;
+    height: 80%;
+    background-image: url(../img/newspaper2.jpg);
+    z-index: -1;
+}
+
+/* create tabs for the folder */
+div.explanation h3,
+div.requirements h3,
+div.benefits h3,
+div.participation h3 {
+    margin-top: -5%;
+    width: 12vw;
+    background-color: bisque;
+}
+
+
+
+/**03:  Typography **/
+@font-face {
+    font-family: 'myfont';
+    src: url(../fonts/chunkfive.eot);
+}
+
+header h1 {
+    font-family: 'myfont', sans-serif;
+    font-weight: 100;
+    font-size: 1.25em;
+    letter-spacing: normal;
+    line-height: 1em;
+    text-transform: uppercase;
+}
+
+header h2 {
+    /* use a different web fonts */
+    font-family: 'Ranchers', cursive;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+#design-selection h3 {
+    visibility: hidden;
+}
+
+/* hide the archive section/ resource section */
+#design-archives {
+    display: none;
+}
+
+/* 04, selector practice , transform, transition, .... */
+a:hover {
+    font-size: 1.5em;
+}
+
+div[role="article"]:hover {
+    top: 15vh;
+    height: 90vh;
+}
+
+/* finish the active action for requirement/benefits/participation */
+p::first-letter {
+    font-size: 1.5em;
+    font-style: italic;
+}
+
+p:nth-child(2n) {
+    background-color: bisque;
+
+}
+
+p:nth-child(2n+1) {
+    background-color: aquamarine;
+}
+
+/** Try one text shadow **/
+
+/** Border radius for the tab**/
+div.explanation h3,
+div.requirements h3,
+div.benefits h3,
+div.participation h3 {
+    border-top-left-radius: 20px;
+    border-top: solid red 1px;
+    padding-left: 5px;
+}
+
+ul {
+    list-style-image: url(../img/star.png);
+}
+
+section.intro.h3~p {
+    transition: all 3s cubic-bezier();
+}
+
+section.intro.h3:hover~p {
+    transform: scale(1.1);
+}
+
+@keyframes backandforth {
+    from {
+        transform: translate(-500px);
+    }
+
+    30% {
+        transform: translate(-400px);
+    }
+
+    50% {
+        transform: translate(-300px);
+    }
+
+    70% {
+        transform: translate(-400px);
+    }
+
+    100% {
+        transform: translate(-500px);
+    }
+}
+
+footer {
+    z-index: 99;
+    position: fixed;
+    bottom: 1vh;
+    left: 50%;
+    animation: 10s ease-in-out 2s alternate infinite backandforth
+}
